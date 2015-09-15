@@ -24,7 +24,9 @@ void main() {
     float tcos = cos(u_time);
 
     float pct = pcurve(st.x, tsin + 3.0, tsin - 1.0);
+    pct += pcurve(st.x, tsin - 1.0, tsin + 3.0);
     pct += pcurve(st.y, tcos - 1.0, 3.0 + tcos);
+    pct += pcurve(st.y, tcos + 3.0, tcos - 1.0);
 
 
 
