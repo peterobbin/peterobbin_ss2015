@@ -20,8 +20,8 @@ void main() {
 
     vec2 st = gl_FragCoord.xy/u_resolution;
     vec2 mousePos = u_mouse/u_resolution;
-    float tsin = sin(u_time);
-    float tcos = cos(u_time);
+    float tsin = (sin(u_time * 2.0) + 1.0) / 2.0;
+    float tcos = (cos(u_time * 2.0) + 1.0) / 2.0;
 
     float pct = pcurve(st.x, tsin + 3.0, tsin - 1.0);
     pct += pcurve(st.x, tsin - 1.0, tsin + 3.0);
