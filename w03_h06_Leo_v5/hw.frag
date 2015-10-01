@@ -49,10 +49,12 @@ void main() {
 	color = mix(color,rgbNormalizer(vec3(4.0,13.0,191.0)), frameBlack);
 
 	float frameV = smoothstep(0.6, 0.0, abs(sin(radius*PI* 0.2 - sinT * 2.0)));
-	color = mix(color,rgbNormalizer(vec3(108.0,41.0,41.0)), frameV);
+	vec3 colorV = mix(color,rgbNormalizer(vec3(108.0,41.0,41.0)), frameV);
+    color += colorV;
 
-	float frameV2 = smoothstep(0.6, 0.0, abs(sin(radius*PI* 0.2 - 2.0 - sinT * 2.0)));
-	color = mix(color,rgbNormalizer(vec3(178.0,156.0,233.0)), frameV2);
+	float frameV2 = smoothstep(0.6, 0.0, abs(sin(radius*PI* 0.1 - 2.0 - sinT * 2.0))) ;
+	vec3 colorV2 = mix(color,rgbNormalizer(vec3(178.0,156.0,233.0)), frameV2);
+    color += colorV2;
 
     
   

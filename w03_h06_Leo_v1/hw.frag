@@ -40,14 +40,18 @@ void main() {
 	float bg =  sin(st.y*PI)* 0.05 + 0.95;
 	color = mix(color,rgbNormalizer(vec3(4.0,13.0,193.0)), bg);
 
-	float glich = smoothstep(0.0, 0.2, sin(st.y*PI)* 0.02 + sin(st.y* PI* 9.0) * 0.09) * sinT;
-	color = mix(color,rgbNormalizer(vec3(104.0,105.0,245.0)), glich);
+	float glich = smoothstep(0.0, 0.2, sin(st.y*PI)* 0.02 + sin(st.y* PI* 9.0) * 0.09) * sinT * 0.5;
+	vec3 colorGlich = mix(color,rgbNormalizer(vec3(104.0,105.0,245.0)), glich);
+    color += colorGlich;
 
-	float frameH = smoothstep(0.7, 1.0,sin((st.y+0.25)*PI * 2.0)) * cosT;
-	color = mix(color,vec3(0.9), frameH);
+	float frameH = smoothstep(0.7, 1.0,sin((st.y+0.25)*PI * 2.0)) * cosT * 0.5;
+	vec3 colorframeh = mix(color,vec3(0.4), frameH);
+    color += colorframeh;
 
     float frameV = smoothstep(0.8, 1.0,sin((st.x+0.25)*PI * 2.0)) * cosT;
-	color = mix(color,vec3(1.0), frameV);
+	vec3 colorframeV = mix(color,vec3(0.5), frameV);
+    color += colorframeV;
+
     
 
     gl_FragColor = vec4(color,1.0);

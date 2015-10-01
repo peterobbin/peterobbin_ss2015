@@ -37,17 +37,22 @@ void main() {
     float cosT = abs(cos(u_time * 0.05 ));
     float sinT = abs(sin(u_time * 0.05 ));
 
-	float bg =  sin(st.y*PI)* 0.05 + 0.95;
-	color = mix(color,rgbNormalizer(vec3(245.0,61.0,76.0)), bg);
+	float bg =  (sin(st.y*PI)* 0.05 + 0.95) * 0.1;
+	vec3 colorBg = mix(color,rgbNormalizer(vec3(245.0,61.0,76.0)), bg);
+    color += colorBg;
 
-	float glich = smoothstep(0.8, 1.1, sin((st.y + cosT)*PI*2.0));
-	color = mix(color,rgbNormalizer(vec3(228.0,225.0,111.0)), glich);
+	float glich = smoothstep(0.8, 1.1, sin((st.y + cosT)*PI*2.0)) * 0.3;
+	vec3 colorGlich = mix(color,rgbNormalizer(vec3(228.0,225.0,111.0)), glich);
+    color += colorGlich;
 
-	float frame = smoothstep(0.3, 1.0, sin((st.y + sinT * 2.0)*PI*1.0 - 0.8));
-	color = mix(color,rgbNormalizer(vec3(212.0,4.0,217.0)), frame);
+	float frame = smoothstep(0.3, 1.0, sin((st.y + sinT * 2.0)*PI*1.0 - 0.8)) * 0.2;
+	vec3 colorFrame = mix(color,rgbNormalizer(vec3(212.0,4.0,217.0)), frame);
+    color += colorFrame;
 
-	float frameH = smoothstep(0.7 + sinT* 0.2, 1.0, sin((st.y + sinT* 0.5)*PI*1.0 - 0.8)) * cosT;
-	color = mix(color,rgbNormalizer(vec3(239.0,249.0,249.0)), frameH);
+
+	float frameH = smoothstep(0.7 + sinT* 0.2, 1.0, sin((st.y + sinT* 0.5)*PI*1.0 - 0.8)) * cosT * 0.5;
+	vec3 colorH = mix(color,rgbNormalizer(vec3(239.0,249.0,249.0)), frameH);
+    color += colorH;
 
 
 
