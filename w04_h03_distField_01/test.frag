@@ -1,4 +1,4 @@
-// Author @patriciogv - 2015
+// Author @patriciogv - 2015 modified by @peterobbin
 // http://patriciogonzalezvivo.com
 
 #ifdef GL_ES
@@ -16,6 +16,7 @@ void main(){
     // a. The DISTANCE from the pixel to the center
     pct = distance(st,vec2(0.5)) * 2.0;
 
+    pct = step(0.5, pct);
     // b. The LENGTH of the vector 
     //    from the pixel to the center 
     // vec2 toCenter = vec2(0.5)-st;

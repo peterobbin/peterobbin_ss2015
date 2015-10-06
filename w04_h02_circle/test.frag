@@ -1,4 +1,4 @@
-// Author @patriciogv - 2015
+// Author @patriciogv - 2015 modified by @peterobbin
 // http://patriciogonzalezvivo.com
 
 #ifdef GL_ES
