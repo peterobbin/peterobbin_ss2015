@@ -24,9 +24,29 @@ vec3 tunnel(float x, float y, float w, float h, float r, float g, float b){
 
 vec3 tunnelMask(float x, float y, float w, float h, float a){
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
+    x += w * 0.5;
+    y += h * 0.5;
     float horizonal = step(x ,st.x) - step(x + w, st.x); 
     float vertical = step( y ,st.y) - step(y + h , st.y);
     vec3 color = vec3(a) * horizonal * vertical;
+
+    return color; 
+}
+
+vec3 rectOutline(float x, float y, float w, float h, float a, float weight){
+    vec2 st = gl_FragCoord.xy/u_resolution.xy;
+    x += w * 0.5;
+    y += h * 0.5;
+    vec3 color = vec3(0.0);
+    float xhorizonal = step(x - weight* 0.5 ,st.x ) - step(x + weight* 0.5, st.x) + step(x+w - weight * 0.5, st.x) - step(x+w + weight * 0.5, st.x); 
+    float xvertical = step(y - weight * 0.5,st.y) - step(y + h + weight * 0.5, st.y);
+
+    float yhorizonal = step(y - weight* 0.5 ,st.y) - step(y + weight* 0.5, st.y) + step(y+h - weight * 0.5, st.y) - step(y+h + weight * 0.5, st.y); 
+    float yvertical = step(x - weight * 0.5,st.x) - step(x + w + weight* 0.5, st.x);
+
+    vec3 colorx = vec3(a) * xhorizonal * xvertical;
+    vec3 colory = vec3(a) * yhorizonal * yvertical;
+    color = colory + colorx;
 
     return color; 
 }
@@ -38,25 +58,7 @@ void main(){
     vec3 color = vec3(0.0);
 
     //bg
-    color = mix(color, vec3(1.0), tunnelMask(0.0, 0.0, 1.0, 1.0, 1.0));
-
-    //color
-    color = mix(color, vec3(0.8 , sinT * 10.0, cosT * 10.0), tunnelMask(0.2 + sinT, 0.2 + sinT, 0.8 - sinT, 0.8 - sinT, 1.0));//red
-    color = mix(color, vec3(sinT * 10.0 , cosT * 10.0, 0.8), tunnelMask(0.0, 0.0, 0.2 + sinT, 0.2 + sinT, 1.0));//blue
-    color = mix(color, vec3(0.9, 0.9 , sinT * 10.0 ), tunnelMask(0.9, 0.0, 0.1, 0.1 + sinT * 0.5, 1.0));//yellow
-
-    //frames
-    color = mix(color, vec3(0.0), tunnelMask(0.0, 0.2 + sinT, 1.0, 0.02, 1.0)); // x structure
-    color = mix(color, vec3(0.0), tunnelMask(0.2 + sinT, 0.0, 0.02, 1.0, 1.0));// y structure
-
-    color = mix(color, vec3(0.0), tunnelMask(0.9, 0.0, 0.02, 0.2 + sinT, 1.0));
-    color = mix(color, vec3(0.0), tunnelMask(0.9, 0.1 + sinT * 0.5, 0.1, 0.02, 1.0));
-    color = mix(color, vec3(0.0), tunnelMask(0.0, 0.7, 0.2 + sinT, 0.02, 1.0));
-
-
-
-
-
+    color = mix(color, vec3(1.0), rectOutline(0.0 , 0.0 , 0.5 +sinT, 0.5 + cosT, 1.0, 0.1));
 
 
 
