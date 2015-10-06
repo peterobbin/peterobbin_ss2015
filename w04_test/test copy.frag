@@ -15,7 +15,7 @@ void main() {
     //st -= 0.5;
     //st *= st* 2.0 - 2.0;
 
-    
+
     st = st* 2. - 1.;
     //pct = (step(0.2, st.x) - step(0.8, st.x)) * (step(0.2, st.y) - step(0.8, st.y));
     //pct = 1.0 - length(abs(st) - 0.5);
@@ -29,5 +29,5 @@ void main() {
     
 
 
-    gl_FragColor = vec4(vec3(final), 1.0);
+    gl_FragColor = vec4(vec3(1.0 - final), 1.0);
 }
