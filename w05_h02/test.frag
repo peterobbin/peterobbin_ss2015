@@ -28,7 +28,7 @@ float box(vec2 st, vec2 size){
 }
 
 float cross(vec2 st, float size){
-    return  box(st, vec2(size,size/40.0));
+    return  box(st, vec2(size,size/140.0));
 }
 
 mat3 scaleMatrix(vec2 f) {
@@ -103,11 +103,14 @@ void main(){
     pos = matrix * pos;
 
     //vec3 rect = box(pos.xy, 0.4);
-    vec3 circleMask = vec3(scope(1.0, 0.0));
-    color = mix(color, vec3(0.0, 0.2 + mod(-u_time * 0.08 + 0.34,0.5) * 0.2, 0.0), circleMask);
+    vec3 circleMask = vec3(scope(1.0, 0.7));
+    color = mix(color, vec3(0.0, 0.2 + mod(-u_time * 0.0795 + 0.34,0.5) * 0.2, 0.0), circleMask);
+
+    vec3 circleMaska = vec3(scope(1.0, 0.0));
+    color += mix(color, vec3(0.0, 0.2 + mod(-u_time * 0.0795 + 0.34,0.5) * 0.2, 0.0), circleMaska);
 
     vec3 target = vec3(scope(20.0, 0.5, vec2(0.1, 0.2)));
-    color = mix(color, vec3(0.2 + mod(-u_time * 0.08 + 0.34,0.5) * 1.2, 0.2 + mod(-u_time * 0.08 + 0.34,0.5) * 0.2, 0.0), target);
+    color = mix(color, vec3(0.2 + mod(-u_time * 0.0795 + 0.34,0.5) * 1.2, 0.2 + mod(-u_time * 0.0795 + 0.34,0.5) * 0.2, 0.0), target);
     color += cross(vec2(pos.x + 0.2, pos.y),0.4);
 
 
