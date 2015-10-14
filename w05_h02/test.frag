@@ -104,10 +104,10 @@ void main(){
 
     //vec3 rect = box(pos.xy, 0.4);
     vec3 circleMask = vec3(scope(1.0, 0.0));
-    color = mix(color, vec3(0.2, 0.0, 0.0), circleMask);
+    color = mix(color, vec3(0.0, 0.2 + mod(-u_time * 0.08 + 0.34,0.5) * 0.2, 0.0), circleMask);
 
-    vec3 target = vec3(scope(20.0, 0.0, vec2(0.1, 0.2)));
-    color = mix(color, vec3(0.2 + mod(-u_time * 0.08 + 0.35,0.5), 0.0, 0.0), target);
+    vec3 target = vec3(scope(20.0, 0.5, vec2(0.1, 0.2)));
+    color = mix(color, vec3(0.2 + mod(-u_time * 0.08 + 0.34,0.5) * 1.2, 0.2 + mod(-u_time * 0.08 + 0.34,0.5) * 0.2, 0.0), target);
     color += cross(vec2(pos.x + 0.2, pos.y),0.4);
 
 
