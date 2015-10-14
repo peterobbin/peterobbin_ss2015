@@ -193,38 +193,93 @@ void main(){
     translate(vec2(-0.5), matrix9b);
     translate(vec2(-0.5), matrix0b);
 
-    rotate(sin(u_time * 0.7) * 3.2 + 1.0, matrix);
-    rotate(sin(u_time * 0.7 - 0.2) * 3.2 + 1.0, matrix2);
-    rotate(sin(u_time * 0.7 - 0.4) * 3.2 + 1.0, matrix3);
-    rotate(sin(u_time * 0.7 - 0.6) * 3.2 + 1.0, matrix4);
-    rotate(sin(u_time * 0.7 - 0.8) * 3.2 + 1.0, matrix5);
-    rotate(sin(u_time * 0.7 - 1.0) * 3.2 + 1.0, matrix6);
-    rotate(sin(u_time * 0.7 - 1.2) * 3.2 + 1.0, matrix7);
-    rotate(sin(u_time * 0.7 - 1.4) * 3.2 + 1.0, matrix8);
-    rotate(sin(u_time * 0.7 - 1.6) * 3.2 + 1.0, matrix9);
-    rotate(sin(u_time * 0.7 - 1.8) * 3.2 + 1.0, matrix0);
+    // rotate(sin(u_time * 0.7) * 3.2 + 1.0, matrix);
+    // rotate(sin(u_time * 0.7 - 0.2) * 3.2 + 1.0, matrix2);
+    // rotate(sin(u_time * 0.7 - 0.4) * 3.2 + 1.0, matrix3);
+    // rotate(sin(u_time * 0.7 - 0.6) * 3.2 + 1.0, matrix4);
+    // rotate(sin(u_time * 0.7 - 0.8) * 3.2 + 1.0, matrix5);
+    // rotate(sin(u_time * 0.7 - 1.0) * 3.2 + 1.0, matrix6);
+    // rotate(sin(u_time * 0.7 - 1.2) * 3.2 + 1.0, matrix7);
+    // rotate(sin(u_time * 0.7 - 1.4) * 3.2 + 1.0, matrix8);
+    // rotate(sin(u_time * 0.7 - 1.6) * 3.2 + 1.0, matrix9);
+    // rotate(sin(u_time * 0.7 - 1.8) * 3.2 + 1.0, matrix0);
 
-    rotate(sin(u_time * 0.8) * 3.2, matrixa);
-    rotate(sin(u_time * 0.8 - 0.2) * 3.2, matrix2a);
-    rotate(sin(u_time * 0.8 - 0.4) * 3.2, matrix3a);
-    rotate(sin(u_time * 0.8 - 0.6) * 3.2, matrix4a);
-    rotate(sin(u_time * 0.8 - 0.8) * 3.2, matrix5a);
-    rotate(sin(u_time * 0.8 - 1.0) * 3.2, matrix6a);
-    rotate(sin(u_time * 0.8 - 1.2) * 3.2, matrix7a);
-    rotate(sin(u_time * 0.8 - 1.4) * 3.2, matrix8a);
-    rotate(sin(u_time * 0.8 - 1.6) * 3.2, matrix9a);
-    rotate(sin(u_time * 0.8 - 1.8) * 3.2, matrix0a);
+    // rotate(sin(u_time * 0.8) * 3.2, matrixa);
+    // rotate(sin(u_time * 0.8 - 0.2) * 3.2, matrix2a);
+    // rotate(sin(u_time * 0.8 - 0.4) * 3.2, matrix3a);
+    // rotate(sin(u_time * 0.8 - 0.6) * 3.2, matrix4a);
+    // rotate(sin(u_time * 0.8 - 0.8) * 3.2, matrix5a);
+    // rotate(sin(u_time * 0.8 - 1.0) * 3.2, matrix6a);
+    // rotate(sin(u_time * 0.8 - 1.2) * 3.2, matrix7a);
+    // rotate(sin(u_time * 0.8 - 1.4) * 3.2, matrix8a);
+    // rotate(sin(u_time * 0.8 - 1.6) * 3.2, matrix9a);
+    // rotate(sin(u_time * 0.8 - 1.8) * 3.2, matrix0a);
 
-    rotate(sin(u_time * 0.9) * 3.2 + 4.0, matrixb);
-    rotate(sin(u_time * 0.9 - 0.2) * 3.2 + 4.0, matrix2b);
-    rotate(sin(u_time * 0.9 - 0.4) * 3.2 + 4.0, matrix3b);
-    rotate(sin(u_time * 0.9 - 0.6) * 3.2 + 4.0, matrix4b);
-    rotate(sin(u_time * 0.9 - 0.8) * 3.2 + 4.0, matrix5b);
-    rotate(sin(u_time * 0.9 - 1.0) * 3.2 + 4.0, matrix6b);
-    rotate(sin(u_time * 0.9 - 1.2) * 3.2 + 4.0, matrix7b);
-    rotate(sin(u_time * 0.9 - 1.4) * 3.2 + 4.0, matrix8b);
-    rotate(sin(u_time * 0.9 - 1.6) * 3.2 + 4.0, matrix9b);
-    rotate(sin(u_time * 0.9 - 1.8) * 3.2 + 4.0, matrix0b);
+    // rotate(sin(u_time * 0.9) * 3.2 + 4.0, matrixb);
+    // rotate(sin(u_time * 0.9 - 0.2) * 3.2 + 4.0, matrix2b);
+    // rotate(sin(u_time * 0.9 - 0.4) * 3.2 + 4.0, matrix3b);
+    // rotate(sin(u_time * 0.9 - 0.6) * 3.2 + 4.0, matrix4b);
+    // rotate(sin(u_time * 0.9 - 0.8) * 3.2 + 4.0, matrix5b);
+    // rotate(sin(u_time * 0.9 - 1.0) * 3.2 + 4.0, matrix6b);
+    // rotate(sin(u_time * 0.9 - 1.2) * 3.2 + 4.0, matrix7b);
+    // rotate(sin(u_time * 0.9 - 1.4) * 3.2 + 4.0, matrix8b);
+    // rotate(sin(u_time * 0.9 - 1.6) * 3.2 + 4.0, matrix9b);
+    // rotate(sin(u_time * 0.9 - 1.8) * 3.2 + 4.0, matrix0b);
+
+    rotate(u_time * 1.7, matrix);
+    rotate(u_time * 1.7 - 0.7, matrix2);
+    rotate(u_time * 1.7 - 1.4, matrix3);
+    rotate(u_time * 1.7 - 2.1, matrix4);
+    rotate(u_time * 1.7 - 2.8, matrix5);
+    rotate(u_time * 1.7 - 3.5, matrix6);
+    rotate(u_time * 1.7 - 4.2, matrix7);
+    rotate(u_time * 1.7 - 4.9, matrix8);
+    rotate(u_time * 1.7 - 5.6, matrix9);
+    rotate(u_time * 1.7 - 6.3, matrix0);
+
+    rotate(u_time * 1.8, matrixa);
+    rotate(u_time * 1.8 - 0.7, matrix2a);
+    rotate(u_time * 1.8 - 1.4, matrix3a);
+    rotate(u_time * 1.8 - 2.1, matrix4a);
+    rotate(u_time * 1.8 - 2.8, matrix5a);
+    rotate(u_time * 1.8 - 3.5, matrix6a);
+    rotate(u_time * 1.8 - 4.2, matrix7a);
+    rotate(u_time * 1.8 - 4.9, matrix8a);
+    rotate(u_time * 1.8 - 5.6, matrix9a);
+    rotate(u_time * 1.8 - 6.3, matrix0a);
+
+    rotate(u_time * 1.75, matrixb);
+    rotate(u_time * 1.75 - 0.7, matrix2b);
+    rotate(u_time * 1.75 - 1.4, matrix3b);
+    rotate(u_time * 1.75 - 2.1, matrix4b);
+    rotate(u_time * 1.75 - 2.8, matrix5b);
+    rotate(u_time * 1.75 - 3.5, matrix6b);
+    rotate(u_time * 1.75 - 4.2, matrix7b);
+    rotate(u_time * 1.75 - 4.9, matrix8b);
+    rotate(u_time * 1.75 - 5.6, matrix9b);
+    rotate(u_time * 1.75 - 6.3, matrix0b);
+
+    // rotate(sin(u_time * 0.8) * 3.2, matrixa);
+    // rotate(sin(u_time * 0.8 - 0.2) * 3.2, matrix2a);
+    // rotate(sin(u_time * 0.8 - 0.4) * 3.2, matrix3a);
+    // rotate(sin(u_time * 0.8 - 0.6) * 3.2, matrix4a);
+    // rotate(sin(u_time * 0.8 - 0.8) * 3.2, matrix5a);
+    // rotate(sin(u_time * 0.8 - 1.0) * 3.2, matrix6a);
+    // rotate(sin(u_time * 0.8 - 1.2) * 3.2, matrix7a);
+    // rotate(sin(u_time * 0.8 - 1.4) * 3.2, matrix8a);
+    // rotate(sin(u_time * 0.8 - 1.6) * 3.2, matrix9a);
+    // rotate(sin(u_time * 0.8 - 1.8) * 3.2, matrix0a);
+
+    // rotate(sin(u_time * 0.9) * 3.2 + 4.0, matrixb);
+    // rotate(sin(u_time * 0.9 - 0.2) * 3.2 + 4.0, matrix2b);
+    // rotate(sin(u_time * 0.9 - 0.4) * 3.2 + 4.0, matrix3b);
+    // rotate(sin(u_time * 0.9 - 0.6) * 3.2 + 4.0, matrix4b);
+    // rotate(sin(u_time * 0.9 - 0.8) * 3.2 + 4.0, matrix5b);
+    // rotate(sin(u_time * 0.9 - 1.0) * 3.2 + 4.0, matrix6b);
+    // rotate(sin(u_time * 0.9 - 1.2) * 3.2 + 4.0, matrix7b);
+    // rotate(sin(u_time * 0.9 - 1.4) * 3.2 + 4.0, matrix8b);
+    // rotate(sin(u_time * 0.9 - 1.6) * 3.2 + 4.0, matrix9b);
+    // rotate(sin(u_time * 0.9 - 1.8) * 3.2 + 4.0, matrix0b);
 
 
 
