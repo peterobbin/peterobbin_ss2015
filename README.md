@@ -6,3 +6,7 @@
 **Twitter Handle** peterobbin
 
 **Email** wangl073@newschool.edu
+
+--------------------------------
+
+***opensource** doesn't mean **copy**
