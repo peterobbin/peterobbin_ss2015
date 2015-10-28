@@ -11,7 +11,7 @@
 
 **Midterm Project** 
 
-This project included several common light effects that can be seen in movies or games. A done in shaders. It still needs optimization. 
+This project included several common light effects that can be seen in movies or games. All done in shaders. It still needs optimization. 
 
 Link:
 
