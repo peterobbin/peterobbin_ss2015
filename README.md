@@ -9,4 +9,8 @@
 
 --------------------------------
 
-***opensource** doesn't mean **copy**
+**Midterm Project** 
+
+Link:
+
+https://github.com/peterobbin/of_lighteffects
