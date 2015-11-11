@@ -2,46 +2,95 @@
 precision mediump float;
 #endif
 
-#define PI 3.14159265359
-
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
+vec3 newNoise = vec3 (0.0);
+float tempTime;
 
-float random(float x){
-	return fract(sin(x)*8e4);
+//Double-Circle Sigmoid
+float pcurve( float x, float a, float b )
+{
+    float k = pow(a+b,a+b) / (pow(a,a)*pow(b,b));
+    return k * pow( x, a ) * pow( 1.0 - x, b );
 }
 
-
-float random2(vec2 st){
-	 return fract(sin(dot(st.xy,
+float random (vec2 st) { 
+    return fract(sin(dot(st.xy,
                          vec2(12.9898,78.233)))* 
-        43758.5453123 );
+        43758.5453123);
 }
+
+float easeInOut (float t, float b, float c, float d) {
+  t /= d/2.;
+  if (t < 1.) return c/2. * pow( 2., 10. * (t - 1.) ) + b;
+  t--;
+  return c/2. * ( -pow( 2., -10. * t) + 2. ) + b;
+}
+
+
+vec2 moveRowCol(vec2 _st){
+  float time = sin(u_time) * 0.5 + 0.5;
+
+    if( fract(time)>0.5 ){
+        if (fract( _st.y * 0.5) > 0.5){
+            _st.x -= fract(time)*2.0;
+        } else {
+            _st.x += fract(time)*2.0;
+        } 
+    } else {
+        if (fract( _st.x * 0.5) > 0.5){
+            _st.y -= fract(time)*2.0;
+        } else {
+            _st.y += fract(time)*2.0;
+        } 
+    }
+    return fract(_st);
+}
+
+
+
+
 
 void main() {
+
+
     vec2 st = gl_FragCoord.xy/u_resolution;
-
-    st *= vec2(10., 10.0); 
+    st *= 10.;
+  
+   
     vec2 i_st = floor(st);
-    vec2 f_st = fract(st);
 
-    float time = floor(u_time * 10.0);
-    float pct = random(time+ i_st.x);
-    pct = random2(i_st + vec2(0. , time));
+    st = moveRowCol(st);
 
-   // vec3 color = vec3(random(time + f_st.x * 10.0));
+    
+    st = fract(st );
+    
+    vec2 mousePos = u_mouse/u_resolution;
+    float tsin = (sin(u_time * 2.0) + 1.0) / 2.0;
+    float tcos = (cos(u_time * 2.0) + 1.0) / 2.0;
 
-   if (i_st.y == 1.){
-   		f_st.y = 1. - f_st.y;
 
-   }
+    float pct = pcurve(st.x, tsin + 3.0, tsin - 1.0);
+    pct += pcurve(st.x, tsin - 1.0, tsin + 3.0);
+    pct += pcurve(st.y, tcos - 1.0, 3.0 + tcos);
+    pct += pcurve(st.y, tcos + 3.0, tcos - 1.0);
 
-    vec3 color = vec3 (step( pct, f_st.y)) - step(.7, f_st.x);
-    color = vec3(pct);
-    //color = mix(color * random(f_st.x * 999.0 + time), vec3(-sin(st.y * 0.5 + 2.0)), 0.5);
-    //color = mix(color * sin(i_st.x + u_time * 8.0), vec3(-sin(st.y * 0.5 + 2.0)), 0.5);
-    //color = vec3(step(0.5, color.x));
-    gl_FragColor = vec4(color, 1.0);
+    float time = floor(u_time);
+    vec3 noiseColor = vec3(random(i_st));
+
+
+    // if ((u_time - tempTime) > 5.0){
+    //   tempTime = u_time;
+    //   newNoise = noiseColor; 
+    // }else{
+
+    //   newNoise *= 0.1;
+    // }
+
+
+    vec3 color = vec3(pct) + noiseColor;
+    
+    gl_FragColor = vec4(color,1.0);
 }
