@@ -48,13 +48,7 @@ void main() {
     float sinT = sin(u_time * PI * 2.);
 
     vec2 time = vec2(0.0, 0.0);
-    // if (sinT >= 0.0){
-    //   time = vec2 (floor(10.0 * sin(u_time) ), 0.0);
 
-    // }else{
-    //   time = vec2 (0.0, floor(10.0 * cos(u_time)));
-
-    // }
 
     time = vec2 (floor(sin(u_time) * 5.), floor(cos(u_time) * 5.0));
 

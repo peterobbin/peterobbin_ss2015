@@ -22,8 +22,8 @@ void main() {
     st *= 50.0 ; // Scale the coordinate system by 10
 
 
-    float sinT = sin(u_time * 0.2) ;
-    float cosT = cos(u_time * 0.2) ;
+    float sinT = sin(u_time * 0.5) ;
+    float cosT = cos(u_time * 0.5) ;
 
     if (mod(floor(st.x), 2.0) == 0.0){
 

@@ -17,22 +17,42 @@ float random (vec2 st) {
 
 void main() {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
+    vec2 mouse = u_mouse/u_resolution.xy;
 
 
-    st *= 50.0 ; // Scale the coordinate system by 10
-
+    st.x *= 50.0 ; 
+    st.y *= 20.0 ;
     
 
-    if (mod(floor(st.x), 2.0) == 0.0){
+    if (mod(floor(st.x), 3.0) == 0.0){
 
-        //st.y += u_time ;
+        st.y += u_time * 5.0 + random(floor(st));
     }
 
-    if (mod(floor(st.x), 3.0) != 0.0){
+    st.x *= 2.0 + 1.0 * mouse.x ; 
 
-        st.y -= u_time ;
+
+    if (mod(floor(st.x), 4.0) == 0.0){
+
+        st.y += u_time * 5.0 + random(floor(st));
+    }
+    st.x /= 10.0 + 5.0 *  mouse.x; 
+
+    if (mod(floor(st.x), 1.0) == 0.0){
+
+        st.y += u_time * 5.0 + random(floor(st));
     }
 
+    st.x *= 3.0 + 1.5 * mouse.x; 
+
+    if (mod(floor(st.x), 7.0) == 0.0){
+
+        st.y += u_time * 5.0 + random(floor(st));
+    }
+ 
+ 
+ 
+ 
 
 
 
@@ -40,13 +60,14 @@ void main() {
     vec2 f_st = fract(st);  
 
    
+    
 
         
     
 
      vec3 color = vec3(random( i_st )); 
 
-     color = step(0.7, color);
+     color = step(0.8, color);
 
     gl_FragColor = vec4(color,1.0);
 }
