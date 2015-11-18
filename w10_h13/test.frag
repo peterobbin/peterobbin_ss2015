@@ -47,12 +47,13 @@ void main() {
 
     vec2 st = gl_FragCoord.xy/u_resolution;
 
-       st *= 5.;
+    st *= 2.;
     st = fract(st);
 
 
     vec2 i_st = floor(st);
     vec2 f_st = fract(st);
+    st *= noise(f_st.x + u_time);
 
  
 

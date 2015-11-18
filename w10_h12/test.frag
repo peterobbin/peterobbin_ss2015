@@ -33,7 +33,7 @@ void main(){
     float pct = 0.0;
 
     // a. The DISTANCE from the pixel to the center
-    pct = 1.0 - distance(vec2(noise(st.x + sin(noise(u_time + 249.)), st.y),vec2(0.5, 0.5)) * 10.0 * noise(sin(st.x + st.x + sin(noise(u_time*0.1)))* 30.) *  noise(sin(st.y + u_time)* 10.);
+    pct = 1.0 - distance(vec2(noise(st.x + sin(noise(u_time + 249.))), st.y),vec2(0.5, 0.5)) * 10.0 * noise(sin(st.x + st.x + sin(noise(u_time*0.1)))* 30.) *  noise(sin(st.y + u_time)* 10.);
 
     pct = step(0.5, pct - 0.2* noise(u_time ));
     // b. The LENGTH of the vector 
