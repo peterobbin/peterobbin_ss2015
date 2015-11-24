@@ -27,20 +27,16 @@ void main(){
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     vec3 color = vec3(0.);
     
-    st -= .5;
+    st -= .0;
 //     color.rg = st;
     
     float r = length(st);
     float a = atan(st.y,st.x);
     
-//     color.r = r;
-//     color.g = .5+(a/3.14)*.5;
+    //color.r = r;
+    color.g = a/3.14 * 0.5 + 0.5;
     
-//     a += u_time;
-    
-    float pct = .4;
-    pct += noise( vec2(sin(a)*10.,cos(a)*10.) )*(.2*(sin(a+u_time)*2.));
-    color += 1.-step(pct,r);
+
     
     
     gl_FragColor = vec4(color,1.0);

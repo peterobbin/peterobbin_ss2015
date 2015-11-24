@@ -22,14 +22,24 @@ float random (in float x) {
 
 void main () {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
-    vec2 m_st = st * 1.;
+    vec2 mouse = u_mouse/u_resolution.xy;
+    vec2 m_st = st * 50. * mouse.x;
     vec2 i_st = floor(m_st);
     vec2 f_st = fract(m_st);
 
 
     vec2 offset = vec2(0.0);
-    offset.x = texture2D(u_tex1,f_st + fract( 0.1)).x*0.02;
+    offset.y = texture2D(u_tex1,f_st).x;
+    offset.x = 1. - texture2D(u_tex1,f_st).y;
 
-    vec4 color = texture2D(u_tex0,st+offset);
+    vec4 color = texture2D(u_tex0,st + offset + offset * (u_time));
+    color.g = texture2D(u_tex0,st + offset + offset * (u_time * 0.1)).g;
+    color.b = texture2D(u_tex0,st + offset + offset * (u_time * 2.0)).g;;
+
+
+
+
+
+
     gl_FragColor = color;
 }
