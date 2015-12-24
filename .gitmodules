@@ -1,3 +1,0 @@
-[submodule "video-filter"]
-	path = video-filter
-	url = git@github.com:peterobbin/video-filter.git
